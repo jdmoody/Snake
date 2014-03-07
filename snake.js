@@ -69,9 +69,10 @@
   };
 
   Board.prototype.randomApple = function() {
-    var x = this.getRandomInt(0, this.width);
-    var y = this.getRandomInt(0, this.height);
+    var x = this.getRandomInt(0, this.width - 1);
+    var y = this.getRandomInt(0, this.height - 1);
     this.apple = new Coord(x, y);
+    console.log(this.apple);
   }
 
   Board.prototype.getRandomInt = function(min, max) {

@@ -44,7 +44,7 @@
     });
 
     $(window).keydown(function(e){
-      console.log(e.which);
+      // console.log(e.which);
       keys1 = {
         37: "W",
         38: "N",
