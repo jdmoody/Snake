@@ -44,19 +44,40 @@
     });
 
     $(window).keydown(function(e){
-      keys = {
+      console.log(e.which);
+      keys1 = {
         37: "W",
         38: "N",
         39: "E",
-        40: "S"
+        40: "S",
+        82: "R"
       };
+      keys2 = {
+        65: "W",
+        87: "N",
+        68: "E",
+        83: "S"
+      };
+
       if ( e.which > 36 && e.which < 41 ) {
-        that.board.snake.turn(keys[e.which]);
-      }
+        that.board.snake.turn(keys1[e.which]);
+      } // else if (e.which == 82) {
+//         that.resetGame();
+//       }
+      // else if ([65, 68, 83, 87].indexOf(e.which) !== -1) {
+//         that.board.snake2.turn(keys2[e.which]);
+//       }
     });
 
     this.id = setInterval(this.tick.bind(this), 50);
   };
+
+  // UI.prototype.resetGame = function() {
+  //   clearInterval(this.id);
+  //   this.board.snake = new SnakeGame.Snake();
+  //   this.board.init();
+  //   this.init();
+  // };
 
   UI.prototype.tick = function(){
     var cont = this.step();
@@ -113,8 +134,6 @@
     this.prevTail = new SnakeGame.Coord(head.x, head.y);
     var beforeTail = this.board.snake.segments[1]
     var diff = tail.minusCoord(beforeTail);
-    console.log([diff.x, diff.y], tail);
-
 
     if (diff.x === 0 && diff.y === 1) {
       this.findByCoord(tail).css({
