@@ -94,7 +94,7 @@
 
   Board.prototype.snakeOutOfBounds = function() {
     var head = this.snake.getHead();
-    return (head.x < 0 || head.x > this.width || head.y < 0 || head.y > this.height);
+    return (head.x < 0 || head.x > this.width - 1 || head.y < 0 || head.y > this.height - 1);
   };
 
   Board.prototype.snakeEatingSelf = function() {

@@ -44,7 +44,6 @@
     });
 
     $(window).keydown(function(e){
-      // console.log(e.which);
       keys1 = {
         37: "W",
         38: "N",
@@ -61,23 +60,11 @@
 
       if ( e.which > 36 && e.which < 41 ) {
         that.board.snake.turn(keys1[e.which]);
-      } // else if (e.which == 82) {
-//         that.resetGame();
-//       }
-      // else if ([65, 68, 83, 87].indexOf(e.which) !== -1) {
-//         that.board.snake2.turn(keys2[e.which]);
-//       }
+      } 
     });
 
     this.id = setInterval(this.tick.bind(this), 50);
   };
-
-  // UI.prototype.resetGame = function() {
-  //   clearInterval(this.id);
-  //   this.board.snake = new SnakeGame.Snake();
-  //   this.board.init();
-  //   this.init();
-  // };
 
   UI.prototype.tick = function(){
     var cont = this.step();
